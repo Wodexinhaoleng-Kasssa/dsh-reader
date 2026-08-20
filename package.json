@@ -1,0 +1,31 @@
+{
+  "name": "@linxin666/dsh-reader",
+  "description": "DSH Web GUI 的在线小说阅读器：左侧边栏「阅读器」入口，在线书源搜索/抓取/整本下载到本地（TXT），阅读界面伪装成聊天对话框（小说章节以对话消息呈现）。宿主侧通过 node fetch 抓取书源网页（规避浏览器 CORS），浏览器侧同源调用 /api/dsh-reader。",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dependencies": {
+    "htmlparser2": "^9.1.0",
+    "iconv-lite": "^0.6.3"
+  },
+  "license": "Apache-2.0"
+}

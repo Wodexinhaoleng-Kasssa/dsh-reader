@@ -1,0 +1,12 @@
+# dsh-reader bundle patch: inserts the plugin row into the web profile
+# roster. Applied as a profile bundle layer (the `dsh.bundle.patch` manifest
+# field) over dsh-base; activate with
+# `dsh plugin --profile web add link:<absolute path to this package>`.
+#
+# The row is a bare plugin by package name: the node half (exports ".") runs
+# in the host process (book-source engine + /api/dsh-reader routes + download
+# tasks), and the `dsh.client` declaration in package.json makes the browser
+# half (exports "./client") load in the web GUI.
+- insert:
+    - id: reader
+      name: '@linxin666/dsh-reader'
