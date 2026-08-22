@@ -17,6 +17,21 @@
 - **下载**：整本抓取拼接为 TXT（UTF-8 BOM），保存到本地（默认 `~/Downloads/dsh-reader`），带进度消息。
 - **书源管理**：规则在 `lib/bsdata.js` 中增删；参考原版 `doc/bs.md` 配置说明。
 
+## 本地验证（开发者）
+
+```bash
+# 书源可用性测试（会实际请求各书源，需联网）
+node scripts/test-sources.mjs 雪中悍刀行
+
+# 可用源的章节+正文链路测试
+node scripts/test-chapters.mjs 雪中悍刀行
+
+# 集成测试：临时 http server 挂 /api/dsh-reader 全链路
+node test-integration.mjs 雪中悍刀行
+```
+
+书源合并脚本：`node scripts/merge-bsdata.mjs`（读取 v2.0.0.4 的 .bs_bak.json + GitHub bs.json 重新生成 `lib/bsdata.js`）。
+
 ## 安装（本地 link 方式）
 
 ```bash
