@@ -53,6 +53,16 @@ cd ~/.dsh/profiles/web && pnpm install
 | GET | /api/dsh-reader/download?id= | 任务进度/结果 |
 | POST | /api/dsh-reader/download/cancel | 取消任务 |
 
+## 致谢与版权
+
+本项目功能思路参考 [binbyu/Reader](https://github.com/binbyu/Reader)（win32 小说阅读器，
+MIT 协议之外的作者自有版权声明：分享/推广需注明出处、严禁非法与商业用途）。
+本插件**未复制其任何 C++ 源码**，全部代码为 TypeScript/JavaScript 独立重写；
+内置书源规则数据（xpath 配置）来自其公开的 bs.json / .bs_bak.json，仅作学习参考。
+
+本插件为免费开源的**非商业**用途软件，遵守原作者"注明出处、禁止商业用途"的要求；
+若原作者对书源数据的使用有异议，请联系移除。
+
 ## 免责声明
 
 书源网站随时可能失效/改版（原版 README 同样警告）；内置书源仅为功能演示，
