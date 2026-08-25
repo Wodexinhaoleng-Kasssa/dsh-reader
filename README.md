@@ -51,7 +51,7 @@ dsh plugin --profile web add github:Wodexinhaoleng-Kasssa/dsh-reader
   然后重跑一次上面的 add 命令即可。
 - 装完**硬刷新浏览器**（Cmd/Ctrl+Shift+R）即可看到左侧边栏的「阅读器」入口（DSH 对 client 改动热加载，无需重启；仅 host 半更新时需要重启）。
 
-> 本插件暂未发布 npm；发布后可直接 `dsh plugin --profile web add @linxin666/dsh-reader`。
+> 本插件暂未发布 npm；发布后可直接 `dsh plugin --profile web add @Wodexinhaoleng-Kasssa/dsh-reader`。
 
 ### 方式二：让 DSH 自己装
 

@@ -9,4 +9,4 @@
 # half (exports "./client") load in the web GUI.
 - insert:
     - id: reader
-      name: '@linxin666/dsh-reader'
+      name: '@Wodexinhaoleng-Kasssa/dsh-reader'
