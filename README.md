@@ -32,20 +32,45 @@ node test-integration.mjs 雪中悍刀行
 
 书源合并脚本：`node scripts/merge-bsdata.mjs`（读取 v2.0.0.4 的 .bs_bak.json + GitHub bs.json 重新生成 `lib/bsdata.js`）。
 
-## 安装（本地 link 方式）
+## 🚀 安装
+
+**前置**：已装好 DSH（dsh web 能正常运行），Node.js ≥ 20、pnpm ≥ 10。
+
+**支持的 DSH 版本**：0.1.0-rc.8 及以上（RC 系列；已在 rc.8 环境实测通过）。
+
+### 方式一：命令行安装
 
 ```bash
-# 1. 在 web profile 的 package.json dependencies 中加入：
-#    "@linxin666/dsh-reader": "link:D:/AI_task/dsh-reader"
-# 2. 在 ~/.dsh/cordis.patch.yml 加入：
-#    - insert:
-#        - id: reader
-#          name: '@linxin666/dsh-reader'
-# 3. 安装依赖并重启 dsh web：
-cd ~/.dsh/profiles/web && pnpm install
+dsh plugin --profile web add github:Wodexinhaoleng-Kasssa/dsh-reader
 ```
 
-也可用：`dsh plugin --profile web add link:<本包绝对路径>`（等价于上面两步）。
+- 首次安装若被 pnpm 11 拦截构建脚本（依赖写入成功但提示 build 未放行），执行：
+  ```bash
+  cd ~/.dsh/profiles/web && pnpm approve-builds --all
+  ```
+  然后重跑一次上面的 add 命令即可。
+- 装完**硬刷新浏览器**（Cmd/Ctrl+Shift+R）即可看到左侧边栏的「阅读器」入口（DSH 对 client 改动热加载，无需重启；仅 host 半更新时需要重启）。
+
+> 本插件暂未发布 npm；发布后可直接 `dsh plugin --profile web add @linxin666/dsh-reader`。
+
+### 方式二：让 DSH 自己装
+
+把下面这段提示词发给任意一个 DSH 会话：
+
+```
+帮我安装 dsh-reader 插件（DSH Web GUI 在线小说阅读器），步骤：
+1. 执行 dsh plugin --profile web add github:Wodexinhaoleng-Kasssa/dsh-reader
+2. 若被 pnpm 拦截构建脚本，在 ~/.dsh/profiles/web 下执行 pnpm approve-builds --all 并重跑 add
+3. 完成后提醒我硬刷新浏览器（Cmd/Ctrl+Shift+R）
+```
+
+### 开发/源码方式
+
+```bash
+dsh plugin --profile web add link:<本仓库绝对路径>
+```
+
+**注意**：本插件已内置"双重启用自防御"（即使被同时加入 bundles 与插槽，也不会因重复路由导致 dsh web 崩溃），但正常安装仍应只保留一个启用入口。
 
 ## 架构
 
