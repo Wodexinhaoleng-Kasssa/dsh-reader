@@ -38,7 +38,13 @@ node test-integration.mjs 雪中悍刀行
 
 **支持的 DSH 版本**：0.1.0-rc.8 及以上（RC 系列；已在 rc.8 环境实测通过）。
 
-### 方式一：命令行安装
+### 方式一：插件市场一键安装（推荐） 🎉
+
+已收录于 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)（usage 分类）：
+- 在 DSH 的 **dsh-market** 插件市场搜索 `dsh-reader` 即可一键安装；
+- 或直接访问收录条目：https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+
+### 方式二：命令行安装
 
 ```bash
 dsh plugin --profile web add github:Wodexinhaoleng-Kasssa/dsh-reader
